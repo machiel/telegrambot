@@ -24,6 +24,8 @@ func (b TelegramBot) executeRequest(target string, v url.Values) ([]byte, error)
 		return []byte{}, err
 	}
 
+	defer resp.Body.Close()
+
 	body, err := ioutil.ReadAll(resp.Body)
 
 	if err != nil {
