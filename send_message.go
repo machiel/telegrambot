@@ -49,6 +49,12 @@ func (b TelegramBot) SendPhoto(id int64, fileID string, options SendMessageOptio
 	return b.sendData(id, fileID, options, "photo", "/sendPhoto")
 }
 
+// SendVoice allows you to send a voicemessage to a specific target
+func (b TelegramBot) SendVoice(id int64, fileID string, options SendMessageOptions) (string, error) {
+	return b.sendData(id, fileID, options, "voice", "/sendVoice")
+}
+
+
 // SendSticker allows you to send a sticker to a specific target
 func (b TelegramBot) SendSticker(id int64, fileID string, options SendMessageOptions) (string, error) {
 	return b.sendData(id, fileID, options, "sticker", "/sendSticker")
